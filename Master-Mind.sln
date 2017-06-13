@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Master-Mind", "Master-Mind\Master-Mind.csproj", "{3F32FF39-F5AB-48C3-9970-54DD4FBEFA1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterMind-Kernel", "MasterMind-Kernel\MasterMind-Kernel.csproj", "{DC88D2BA-2F78-4E3C-B554-197218A9CADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterMind-Tests", "MasterMind-Tests\MasterMind-Tests.csproj", "{F1D32D9A-08FC-46C8-A74C-C8E17064AF4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F32FF39-F5AB-48C3-9970-54DD4FBEFA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F32FF39-F5AB-48C3-9970-54DD4FBEFA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F32FF39-F5AB-48C3-9970-54DD4FBEFA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F32FF39-F5AB-48C3-9970-54DD4FBEFA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC88D2BA-2F78-4E3C-B554-197218A9CADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC88D2BA-2F78-4E3C-B554-197218A9CADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC88D2BA-2F78-4E3C-B554-197218A9CADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC88D2BA-2F78-4E3C-B554-197218A9CADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D32D9A-08FC-46C8-A74C-C8E17064AF4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D32D9A-08FC-46C8-A74C-C8E17064AF4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D32D9A-08FC-46C8-A74C-C8E17064AF4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D32D9A-08FC-46C8-A74C-C8E17064AF4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
