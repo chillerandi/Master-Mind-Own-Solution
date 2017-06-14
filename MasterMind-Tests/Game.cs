@@ -32,7 +32,7 @@ namespace MasterMind_Tests
         public void Start_Game()
         {
             var Target = new Game();
-            Target.Start(5,10);
+            Target.Start(5, 10);
             Assert.AreEqual(GameState.Running, Target.State);
         }
 
@@ -114,7 +114,10 @@ namespace MasterMind_Tests
         {
             var Target = new Game();
             Target.Start(3, 5);
-            for (int i = 0; i < Target.MaxGuesses; i++) { Target.UserInput("123"); }
+            if (Target.Secret != "123") {
+                for (int i = 0; i < Target.MaxGuesses; i++) { Target.UserInput("123"); }
+            }
+            else { Target.UserInput("456"); }
             Assert.AreEqual(GameState.lost, Target.State);
         }
 
@@ -131,6 +134,21 @@ namespace MasterMind_Tests
             catch { Error = true; }
             Assert.IsTrue(Error);
         }
+
+        //[Test]
+        //public void Finished_Game_Accepts_Input_J_For_new_Game()
+        //{
+        //    var Target = new Game();
+        //    Target.Start(5, 10);
+        //    Target.UserInput(Target.Secret);
+        //    var Error = false;
+        //    try {
+        //        Target.UserInput("j");
+        //    }
+        //    catch { Error = true; }
+        //    Assert.IsFalse(Error);
+        //    Assert.AreEqual(GameState.Initial, Target.State);
+        //}
 
         [Test]
         public void Only_ValidInput_Accpeted()
@@ -155,30 +173,17 @@ namespace MasterMind_Tests
         }
 
         [Test]
-        public void Default_Secret_Length_Is_5()
-        {
-            var Target = new Game();
-            Target.Start(5, 10);
-            Assert.IsTrue(IsError(() => Target.UserInput("")));
-            Assert.IsTrue(IsError(() => Target.UserInput("1")));
-            Assert.IsTrue(IsError(() => Target.UserInput("12")));
-            Assert.IsTrue(IsError(() => Target.UserInput("123")));
-            Assert.IsTrue(IsError(() => Target.UserInput("1234")));
-            Assert.IsTrue(IsError(() => Target.UserInput("123456")));
-        }
-
-        [Test]
         public void Game_accepts_parameter_for_Secret_Length()
         {
             var Target = new Game();
-            Target.Start(6, 5);            
+            Target.Start(6, 5);
             Assert.IsTrue(IsError(() => Target.UserInput("1")));
             Assert.IsTrue(IsError(() => Target.UserInput("12")));
             Assert.IsTrue(IsError(() => Target.UserInput("123")));
             Assert.IsTrue(IsError(() => Target.UserInput("12345")));
-            Assert.IsFalse(IsError(() => Target.UserInput("123456")));
             Assert.IsTrue(IsError(() => Target.UserInput("1234567")));
+            Assert.IsFalse(IsError(() => Target.UserInput("123456")));
         }
-               
+
     }
 }

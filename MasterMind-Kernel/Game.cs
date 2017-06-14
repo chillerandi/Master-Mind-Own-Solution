@@ -40,7 +40,7 @@ namespace MasterMind_Kernel
             matcher = new Matcher();
             var Generator = new Random(DateTime.Now.Millisecond);
             for (int Index = 0; Index < Count; ++Index) {
-                Result.Append(/*(int)*/Generator.Next(1, 9));
+                Result.Append(/*(int)*/Generator.Next(0, 9));
             }
             matcher.Secret = Result.ToString();
         }
@@ -53,7 +53,7 @@ namespace MasterMind_Kernel
             if (v.Length != SecretLength) throw new ArgumentException(string.Format("Die Zahl muss aus {0} Ziffern bestehen!", SecretLength));
             if (v.Any(c => char.IsDigit(c) == false)) throw new ArgumentException("Die Eingabe darf nur aus Ziffern bestehen!");
             matcher.UserInput(v);
-        }
+        }      
 
         public string Info()
         {
