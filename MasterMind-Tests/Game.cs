@@ -32,7 +32,7 @@ namespace MasterMind_Tests
         public void Start_Game()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5,10);
             Assert.AreEqual(GameState.Running, Target.State);
         }
 
@@ -40,7 +40,7 @@ namespace MasterMind_Tests
         public void Start_Game_Provides_Random_Number()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Assert.IsNotEmpty(Target.Secret);
             Assert.IsNotNull(Target.Secret);
         }
@@ -50,7 +50,7 @@ namespace MasterMind_Tests
         {
             for (var i = 0; i <= 10000; i++) {
                 var Target = new Game();
-                Target.Start();
+                Target.Start(5, 10);
                 Assert.IsTrue(Target.Secret.All(item => item >= '0' && item <= '9'));
             }
         }
@@ -59,7 +59,7 @@ namespace MasterMind_Tests
         public void State_not_initial_after_input()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Target.UserInput("15324");
             Assert.AreNotEqual(GameState.Initial, Target.State);
         }
@@ -82,7 +82,7 @@ namespace MasterMind_Tests
         public void game_won_if_target_equals_secret()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Target.UserInput(Target.Secret);
             Assert.AreEqual(GameState.won, Target.State);
         }
@@ -91,7 +91,7 @@ namespace MasterMind_Tests
         public void game_lost_if_maxGuesses_reached()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             for (var i = 0; i < Target.MaxGuesses; i++) {
                 Target.UserInput("15324");
             }
@@ -102,7 +102,7 @@ namespace MasterMind_Tests
         public void game_running_if_default_maxGuesses_not_reached()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             for (var i = 0; i < Target.MaxGuesses - 1; i++) {
                 Target.UserInput("15324");
             }
@@ -122,7 +122,7 @@ namespace MasterMind_Tests
         public void Finished_Game_Rejects_Input()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Target.UserInput(Target.Secret);
             var Error = false;
             try {
@@ -136,7 +136,7 @@ namespace MasterMind_Tests
         public void Only_ValidInput_Accpeted()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Target.UserInput("15324");
             Assert.IsTrue(IsError(() => Target.UserInput("")));
             Assert.IsTrue(IsError(() => Target.UserInput("111111")));
@@ -147,7 +147,7 @@ namespace MasterMind_Tests
         public void Input_Produces_Info()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Target.UserInput("15324");
             Assert.IsNotNull(Target.Info());
             Assert.IsNotEmpty(Target.Info());
@@ -158,7 +158,7 @@ namespace MasterMind_Tests
         public void Default_Secret_Length_Is_5()
         {
             var Target = new Game();
-            Target.Start();
+            Target.Start(5, 10);
             Assert.IsTrue(IsError(() => Target.UserInput("")));
             Assert.IsTrue(IsError(() => Target.UserInput("1")));
             Assert.IsTrue(IsError(() => Target.UserInput("12")));

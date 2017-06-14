@@ -15,7 +15,7 @@ namespace MasterMind_Tests
         [Test]
         public void Matcher_Produces_Matches()
         {
-            var Target = new Matcher { MaxGuesses = 10, Secret = "12345" };
+            var Target = new Matcher{ MaxGuesses = 10, Secret = "12345" };
             Target.UserInput("53421");
             Assert.AreEqual("11111", Target.Match);
         }
