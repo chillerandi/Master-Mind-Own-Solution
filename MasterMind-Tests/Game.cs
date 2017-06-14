@@ -11,6 +11,16 @@ namespace MasterMind_Tests
     [TestFixture]
     public class Game_Test
     {
+
+        private bool IsError(Action action)
+        {
+            try {
+                action();
+                return false;
+            }
+            catch { return true; }
+        }
+
         [Test]
         public void Initial_Game_State()
         {
@@ -64,7 +74,7 @@ namespace MasterMind_Tests
             }
             catch {
                 error = true;
-            }             
+            }
             Assert.IsTrue(error);
         }
 
@@ -73,16 +83,38 @@ namespace MasterMind_Tests
         {
             var Target = new Game();
             Target.Start();
-            Target.UserInput(Target.Secret);            
+            Target.UserInput(Target.Secret);
             Assert.AreEqual(GameState.won, Target.State);
         }
 
         [Test]
-        public void game_lost_if_target_equals_secret()
+        public void game_lost_if_maxGuesses_reached()
         {
             var Target = new Game();
             Target.Start();
-            for (var i = 0 ; i < Game.MaxGuesses ; i++) { Target.UserInput("15324"); }
+            for (var i = 0; i < Target.MaxGuesses; i++) {
+                Target.UserInput("15324");
+            }
+            Assert.AreEqual(GameState.lost, Target.State);
+        }
+
+        [Test]
+        public void game_running_if_default_maxGuesses_not_reached()
+        {
+            var Target = new Game();
+            Target.Start();
+            for (var i = 0; i < Target.MaxGuesses - 1; i++) {
+                Target.UserInput("15324");
+            }
+            Assert.AreEqual(GameState.Running, Target.State);
+        }
+
+        [Test]
+        public void Game_accepts_parameter_for_maxGuesses()
+        {
+            var Target = new Game();
+            Target.Start(3, 5);
+            for (int i = 0; i < Target.MaxGuesses; i++) { Target.UserInput("123"); }
             Assert.AreEqual(GameState.lost, Target.State);
         }
 
@@ -122,13 +154,31 @@ namespace MasterMind_Tests
             Assert.AreEqual(Target.Secret.Length, Target.Info().Length);
         }
 
-        private bool IsError(Action action)
+        [Test]
+        public void Default_Secret_Length_Is_5()
         {
-            try {
-                action();
-                return false;
-            }
-            catch { return true; }
+            var Target = new Game();
+            Target.Start();
+            Assert.IsTrue(IsError(() => Target.UserInput("")));
+            Assert.IsTrue(IsError(() => Target.UserInput("1")));
+            Assert.IsTrue(IsError(() => Target.UserInput("12")));
+            Assert.IsTrue(IsError(() => Target.UserInput("123")));
+            Assert.IsTrue(IsError(() => Target.UserInput("1234")));
+            Assert.IsTrue(IsError(() => Target.UserInput("123456")));
         }
+
+        [Test]
+        public void Game_accepts_parameter_for_Secret_Length()
+        {
+            var Target = new Game();
+            Target.Start(6, 5);            
+            Assert.IsTrue(IsError(() => Target.UserInput("1")));
+            Assert.IsTrue(IsError(() => Target.UserInput("12")));
+            Assert.IsTrue(IsError(() => Target.UserInput("123")));
+            Assert.IsTrue(IsError(() => Target.UserInput("12345")));
+            Assert.IsFalse(IsError(() => Target.UserInput("123456")));
+            Assert.IsTrue(IsError(() => Target.UserInput("1234567")));
+        }
+               
     }
 }
