@@ -13,10 +13,9 @@ namespace Master_Mind
         static void Main(string[] args)
         {
             var game = new Game();
-
-            Console.WriteLine("************** Lass uns Master-Mind spielen!! **************\n");
-
-            do {                
+            do {
+                Console.Clear();
+                Console.WriteLine("************** Lass uns Master-Mind spielen!! **************\n");
                 Console.WriteLine("Mit wie vielen Ziffern möchtest Du spielen? (3-6)");
                 var inputLength = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Mit wie vielen Versuchen möchtest Du spielen?");
