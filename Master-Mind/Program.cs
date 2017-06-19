@@ -41,12 +41,13 @@ namespace Master_Mind
                 if (game.State == GameState.won) {
                     Console.WriteLine("Du hast gewonnen!!");
                     Console.WriteLine("Die gesuchte Zahl war tatsächlich: " + game.Secret);
+                    Console.Write("\nWürdest Du gerne nochmal spielen (J/N)? Beenden mit jeder anderen Taste.");
                 }
                 else {
                     Console.WriteLine("Du hast verloren!!");
                     Console.WriteLine("Die gesuchte Zahl war: " + game.Secret);
-                }
-                Console.Write("\nWürdest Du gerne nochmal spielen (J/N)? Beenden mit jeder anderen Taste.");
+                    Console.Write("\nWürdest Du gerne nochmal spielen (J/N)? Beenden mit jeder anderen Taste.");
+                }                
             }
             while (Console.ReadLine().ToUpper() == "J");
 

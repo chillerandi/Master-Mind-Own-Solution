@@ -99,7 +99,7 @@ namespace MasterMind_Tests
         }
 
         [Test]
-        public void game_running_if_default_maxGuesses_not_reached()
+        public void game_running_if_maxGuesses_not_reached()
         {
             var Target = new Game();
             Target.Start(5, 10);
@@ -117,8 +117,10 @@ namespace MasterMind_Tests
             if (Target.Secret != "123") {
                 for (int i = 0; i < Target.MaxGuesses; i++) { Target.UserInput("123"); }
             }
-            else { Target.UserInput("456"); }
+            else {
+                for (int i = 0; i < Target.MaxGuesses; i++) { Target.UserInput("456"); }
             Assert.AreEqual(GameState.lost, Target.State);
+            }
         }
 
         [Test]
@@ -129,7 +131,7 @@ namespace MasterMind_Tests
             Target.UserInput(Target.Secret);
             var Error = false;
             try {
-                Target.UserInput("");
+                Target.UserInput("1");
             }
             catch { Error = true; }
             Assert.IsTrue(Error);
@@ -155,10 +157,10 @@ namespace MasterMind_Tests
         {
             var Target = new Game();
             Target.Start(5, 10);
-            Target.UserInput("15324");
             Assert.IsTrue(IsError(() => Target.UserInput("")));
             Assert.IsTrue(IsError(() => Target.UserInput("111111")));
             Assert.IsTrue(IsError(() => Target.UserInput("ab123")));
+            Assert.IsTrue(IsError(() => Target.UserInput("10234")));
         }
 
         [Test]
@@ -181,9 +183,36 @@ namespace MasterMind_Tests
             Assert.IsTrue(IsError(() => Target.UserInput("12")));
             Assert.IsTrue(IsError(() => Target.UserInput("123")));
             Assert.IsTrue(IsError(() => Target.UserInput("12345")));
-            Assert.IsTrue(IsError(() => Target.UserInput("1234567")));
+            Assert.IsTrue(IsError(() => Target.UserInput("1234565")));
             Assert.IsFalse(IsError(() => Target.UserInput("123456")));
         }
+
+        [Test]
+        public void Game_refuses_input_over_6()
+        {
+            var Target = new Game();
+            Target.Start(3, 5);
+            var Error = false;
+            try {
+                Target.UserInput("157");
+            }
+            catch { Error = true; }
+            Assert.IsTrue(Error);
+        }
+
+        [Test]
+        public void Game_refuses_input_0()
+        {
+            var Target = new Game();
+            Target.Start(3, 5);
+            var Error = false;
+            try {
+                Target.UserInput("150");
+            }
+            catch { Error = true; }
+            Assert.IsTrue(Error);
+        }
+
 
     }
 }
