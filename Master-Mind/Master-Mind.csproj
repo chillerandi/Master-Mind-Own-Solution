@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
@@ -83,11 +84,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rot_Pin.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Unbenannt-1.png" />
@@ -99,9 +98,6 @@
     <None Include="Resources\Gelb_Pin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Blau2_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Pink_Pin.png" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hellblau_Pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rot_Pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rot_Pin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blau_Pin1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
