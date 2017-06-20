@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Master_Mind
 {
@@ -12,6 +13,10 @@ namespace Master_Mind
     {
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new GameForm());
+
             var game = new Game();
             do {
                 Console.Clear();
@@ -47,7 +52,7 @@ namespace Master_Mind
                     Console.WriteLine("Du hast verloren!!");
                     Console.WriteLine("Die gesuchte Zahl war: " + game.Secret);
                     Console.Write("\nWürdest Du gerne nochmal spielen (J/N)? Beenden mit jeder anderen Taste.");
-                }                
+                }
             }
             while (Console.ReadLine().ToUpper() == "J");
 

@@ -46,12 +46,12 @@ namespace MasterMind_Tests
         }
 
         [Test]
-        public void Game_Secret_between_0_and_9()
+        public void Game_Secret_between_0_and_6()
         {
             for (var i = 0; i <= 10000; i++) {
                 var Target = new Game();
                 Target.Start(5, 10);
-                Assert.IsTrue(Target.Secret.All(item => item >= '0' && item <= '9'));
+                Assert.IsTrue(Target.Secret.All(item => item >= '0' && item <= '6'));
             }
         }
 
@@ -137,21 +137,7 @@ namespace MasterMind_Tests
             Assert.IsTrue(Error);
         }
 
-        //[Test]
-        //public void Finished_Game_Accepts_Input_J_For_new_Game()
-        //{
-        //    var Target = new Game();
-        //    Target.Start(5, 10);
-        //    Target.UserInput(Target.Secret);
-        //    var Error = false;
-        //    try {
-        //        Target.UserInput("j");
-        //    }
-        //    catch { Error = true; }
-        //    Assert.IsFalse(Error);
-        //    Assert.AreEqual(GameState.Initial, Target.State);
-        //}
-
+        
         [Test]
         public void Only_ValidInput_Accpeted()
         {

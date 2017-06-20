@@ -52,9 +52,8 @@ namespace MasterMind_Kernel
                 throw new InvalidOperationException("Spiel noch nicht gestartet oder schon gestoppt!");
             }
             // ----------------------- Eingabe auf Zahlen von 1 - 6 begrenzen ---------------------         
-            for (int i = 0; i < Count; ++i) {
-                char[] numbers = v.ToCharArray();
-                if (numbers.Any(c => c > 54 == true) || numbers.Any(c => c < 49 == true)) { throw new InvalidOperationException("Es sind nur Zahlen von 1 - 6 erlaubt!"); }
+            for (int i = 0; i < Count; ++i) {                
+                if (v.Any(c => c > 54 == true) || v.Any(c => c < 49 == true)) { throw new InvalidOperationException("Es sind nur Zahlen von 1 - 6 erlaubt!"); }
             }
             if (v.Length != SecretLength) throw new ArgumentException(string.Format("Die Zahl muss aus {0} Ziffern bestehen!", SecretLength));
             if (v.Any(c => char.IsDigit(c) == false)) throw new ArgumentException("Die Eingabe darf nur aus Ziffern bestehen!");
