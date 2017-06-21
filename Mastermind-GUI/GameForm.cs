@@ -17,7 +17,7 @@ namespace MasterMind_GUI
         public GameForm()
         {
             InitializeComponent();
-            dataGridView2.DataSource = CreateTable(20, Color.Beige);
+            dataGridView2.DataSource = CreateTable(30, Color.Beige);
             //gridView1.Columns["Colour1"].ColumnEdit = new RepositoryItemPictureEdit();
             //gridView1.Columns["Colour2"].ColumnEdit = new RepositoryItemPictureEdit();
             //gridView1.Columns["Colour3"].ColumnEdit = new RepositoryItemPictureEdit();
@@ -71,9 +71,9 @@ namespace MasterMind_GUI
             //    item.BackColor = Color.Red;
             //}
 
-            foreach (DataGridViewCell cell in dataGridView2.Rows) {
-                cell.BackColor = Color.Red;
-            }
+            //foreach (DataGridViewCell cell in dataGridView2.Rows) {
+            //    cell.BackColor = Color.Red;
+            //}
 
             return tbl;
         }
