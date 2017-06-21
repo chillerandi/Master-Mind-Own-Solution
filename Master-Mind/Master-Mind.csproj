@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Master_Mind</RootNamespace>
     <AssemblyName>Master-Mind</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,12 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameForm.Designer.cs">
-      <DependentUpon>GameForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -72,48 +67,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mastermind-GUI\Mastermind-GUI.csproj">
+      <Project>{9f82d653-aa5e-4990-85ef-5810cf17cd87}</Project>
+      <Name>Mastermind-GUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MasterMind-Kernel\MasterMind-Kernel.csproj">
       <Project>{DC88D2BA-2F78-4E3C-B554-197218A9CADF}</Project>
       <Name>MasterMind-Kernel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GameForm.resx">
-      <DependentUpon>GameForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Unbenannt-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blau_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Gelb_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Pink_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Grün_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Hellblau_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rot_Pin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rot_Pin1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blau_Pin1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
