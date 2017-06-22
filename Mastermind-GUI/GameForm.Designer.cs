@@ -33,7 +33,7 @@
             this.matcherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl12 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.ButtonValidate = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup12 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
@@ -65,6 +65,7 @@
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup15 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.guessesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -98,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guessesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -146,7 +148,7 @@
             // 
             // layoutControl12
             // 
-            this.layoutControl12.Controls.Add(this.simpleButton7);
+            this.layoutControl12.Controls.Add(this.ButtonValidate);
             this.layoutControl12.Location = new System.Drawing.Point(562, 12);
             this.layoutControl12.Name = "layoutControl12";
             this.layoutControl12.Root = this.layoutControlGroup12;
@@ -154,15 +156,16 @@
             this.layoutControl12.TabIndex = 10;
             this.layoutControl12.Text = "layoutControl12";
             // 
-            // simpleButton7
+            // ButtonValidate
             // 
-            this.simpleButton7.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton7.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(112, 40);
-            this.simpleButton7.StyleController = this.layoutControl12;
-            this.simpleButton7.TabIndex = 4;
-            this.simpleButton7.Text = "Validate";
+            this.ButtonValidate.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.ButtonValidate.Location = new System.Drawing.Point(2, 2);
+            this.ButtonValidate.Name = "ButtonValidate";
+            this.ButtonValidate.Size = new System.Drawing.Size(112, 40);
+            this.ButtonValidate.StyleController = this.layoutControl12;
+            this.ButtonValidate.TabIndex = 4;
+            this.ButtonValidate.Text = "Validate";
+            this.ButtonValidate.Click += new System.EventHandler(this.ButtonValidate_Click);
             // 
             // layoutControlGroup12
             // 
@@ -180,7 +183,7 @@
             // 
             // layoutControlItem18
             // 
-            this.layoutControlItem18.Control = this.simpleButton7;
+            this.layoutControlItem18.Control = this.ButtonValidate;
             this.layoutControlItem18.CustomizationFormText = "layoutControlItem18";
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem18.MinSize = new System.Drawing.Size(82, 26);
@@ -573,6 +576,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guessesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -604,7 +608,7 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControl layoutControl12;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SimpleButton ButtonValidate;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
@@ -616,5 +620,6 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private System.Windows.Forms.BindingSource guessesBindingSource;
     }
 }

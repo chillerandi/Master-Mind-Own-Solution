@@ -9,6 +9,8 @@ namespace MasterMind_Kernel
     public class Game
     {
         Matcher matcher;
+        public int MaxGuesses;
+
         public GameState State
         {
             get {
@@ -16,20 +18,21 @@ namespace MasterMind_Kernel
                   GameState.won : (matcher.Count >= MaxGuesses ? GameState.lost : GameState.Running));
             }
         }
-
+        
         public string Secret
         {
             get { return matcher.Secret; }
         }
 
-        public int secretLength_;
+        private int secretLength_;
         public int SecretLength
         {
             get { return secretLength_; }
             set { secretLength_ = value; }
         }
-        public int MaxGuesses;
-        public string numberCount;
+
+      
+        //public string numberCount;
 
         public void Start(int secretLength_, int maxGuesses)
         {

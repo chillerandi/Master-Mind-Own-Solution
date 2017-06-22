@@ -1,44 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraPivotGrid;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Base.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using Mastermind_GUI.ViewModels;
 
 namespace MasterMind_GUI
 {
     public partial class GameForm : DevExpress.XtraEditors.XtraForm
     {
+        Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
 
+        private MouseEventHandler mouseClick;
+        private int ClickCount = 0;
+        private int RowCount = 0;
+        Brush[] UserInput = new Brush[] { };
 
-        public GameForm()
+        GameVM model { get; set; }
+
+        public GameForm(FJ.Interfaces.Factory factory, GameVM gameVM)
         {
             InitializeComponent();
             this.MouseClick += mouseClick;
             gridControl1.DataSource = CreateTable(30);
+            model = gameVM;
         }
-
-        Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
-
-        int ClickCount = 0;
-
-        private MouseEventHandler mouseClick;
-
-        public event DataGridViewCellEventHandler CellClick;
-
+       
         private DataTable CreateTable(int RowCount)
         {
+            // -------------------------Table müsste Teil des VM sein
+            // --------------------------BindingList statt DataTable???
             DataTable tbl = new DataTable();
             tbl.Columns.Add("Colour1", typeof(Brush));
             tbl.Columns.Add("Colour2", typeof(Brush));
@@ -74,10 +69,19 @@ namespace MasterMind_GUI
                 return;
             }
             var index = gridView1.GetDataSourceRowIndex(gridHI.RowHandle);
-            var table = grid.DataSource as DataTable;            
+            var table = grid.DataSource as DataTable; 
+            
+            // Rows.Getfield routine um zu sehen, welche Farbe gesetzt ist, danach hoch inkrementieren (IndexOf)
+                       
             table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[ClickCount]);
+            
             ClickCount++;
             if(ClickCount == 6) { ClickCount = 0; }
+        }
+
+        private void ButtonValidate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
