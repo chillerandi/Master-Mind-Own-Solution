@@ -9,190 +9,77 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraPivotGrid;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Base.ViewInfo;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace MasterMind_GUI
 {
     public partial class GameForm : DevExpress.XtraEditors.XtraForm
     {
+
+
         public GameForm()
         {
             InitializeComponent();
-            dataGridView2.DataSource = CreateTable(30, Color.Beige);
-            //gridView1.Columns["Colour1"].ColumnEdit = new RepositoryItemPictureEdit();
-            //gridView1.Columns["Colour2"].ColumnEdit = new RepositoryItemPictureEdit();
-            //gridView1.Columns["Colour3"].ColumnEdit = new RepositoryItemPictureEdit();
-            //gridView1.Columns["Colour4"].ColumnEdit = new RepositoryItemPictureEdit();
-            //gridView1.Columns["Colour5"].ColumnEdit = new RepositoryItemPictureEdit();
-            //gridView1.Columns["Colour6"].ColumnEdit = new RepositoryItemPictureEdit();
-
-            //gridView1.Columns["Colour1"].ColumnEdit = new RepositoryItemColorEdit();
-            //gridView1.Columns["Colour2"].ColumnEdit = new RepositoryItemColorEdit();
-            //gridView1.Columns["Colour3"].ColumnEdit = new RepositoryItemColorEdit();
-            //gridView1.Columns["Colour4"].ColumnEdit = new RepositoryItemColorEdit();
-            //gridView1.Columns["Colour5"].ColumnEdit = new RepositoryItemColorEdit();
-            //gridView1.Columns["Colour6"].ColumnEdit = new RepositoryItemColorEdit();
+            this.MouseClick += mouseClick;
+            gridControl1.DataSource = CreateTable(30);
         }
 
-        //DataGridView dataGridView2 = new DataGridView();
-        
+        Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
 
-        private DataTable CreateTable(int RowCount, Color BgColor)
+        int ClickCount = 0;
+
+        private MouseEventHandler mouseClick;
+
+        public event DataGridViewCellEventHandler CellClick;
+
+        private DataTable CreateTable(int RowCount)
         {
-            
-                Image[] images = new Image[] {
-            Mastermind_GUI.Properties.Resources.Loch,
-            Mastermind_GUI.Properties.Resources.Rot_Pin,
-            Mastermind_GUI.Properties.Resources.Gelb_Pin,
-            Mastermind_GUI.Properties.Resources.Blau_Pin,
-            Mastermind_GUI.Properties.Resources.Pink_Pin,
-            Mastermind_GUI.Properties.Resources.Grün_Pin,
-            Mastermind_GUI.Properties.Resources.Hellblau_Pin
-        };
-
-            //DataTable tbl = new DataTable();
-            //tbl.Columns.Add("Colour1", typeof(Image));
-            //tbl.Columns.Add("Colour2", typeof(Image));
-            //tbl.Columns.Add("Colour3", typeof(Image));
-            //tbl.Columns.Add("Colour4", typeof(Image));
-            //tbl.Columns.Add("Colour5", typeof(Image));
-            //tbl.Columns.Add("Colour6", typeof(Image));
-
             DataTable tbl = new DataTable();
-            tbl.Columns.Add("Colour1", typeof(Color));
-            tbl.Columns.Add("Colour2", typeof(Color));
-            tbl.Columns.Add("Colour3", typeof(Color));
-            tbl.Columns.Add("Colour4", typeof(Color));
-            tbl.Columns.Add("Colour5", typeof(Color));
-            tbl.Columns.Add("Colour6", typeof(Color));
+            tbl.Columns.Add("Colour1", typeof(Brush));
+            tbl.Columns.Add("Colour2", typeof(Brush));
+            tbl.Columns.Add("Colour3", typeof(Brush));
+            tbl.Columns.Add("Colour4", typeof(Brush));
+            tbl.Columns.Add("Colour5", typeof(Brush));
+            tbl.Columns.Add("Colour6", typeof(Brush));
             for (int i = 0; i < RowCount; i++) {
-                tbl.Rows.Add(/*Color.Beige, Color.Beige, Color.Beige, Color.Beige, Color.Beige, Color.Beige */);
+                tbl.Rows.Add(Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray);
             }
-            //foreach (DataGridItem item in gridControl1.Rows) {
-            //    item.BackColor = Color.Red;
-            //}
-
-            //foreach (DataGridViewCell cell in dataGridView2.Rows) {
-            //    cell.BackColor = Color.Red;
-            //}
-
             return tbl;
         }
 
-       
+        private void gridControl1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
+        {
+            GridView currentView = sender as GridView;
+            Rectangle r = e.Bounds;
+            var Background = (Brush)currentView.GetRowCellValue(e.RowHandle, e.Column);
+            e.Graphics.FillRectangle(Background, r);
+            e.Handled = true;
+        }
 
-    //private void gridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-    //{
-    //    DataGridViewCellStyle CellStyle = new DataGridViewCellStyle();
-    //    CellStyle.BackColor = Color.Red;
-    //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = CellStyle;
-    //}
-
-    //private void gridControl1_Click(object sender, DataGridViewCellEventArgs e)
-    //    {
-    //        DataGridViewCellStyle CellStyle = new DataGridViewCellStyle();
-    //        CellStyle.BackColor = Color.Red;
-    //        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = CellStyle;
-    //    }
-
-        //private void GameForm_Load(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    DataGridViewCellStyle CellStyle = new DataGridViewCellStyle();
-        //    CellStyle.BackColor = Color.Red;
-        //    dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = CellStyle;
-        //}
-
-        //private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    DataGridViewCellStyle CellStyle = new DataGridViewCellStyle();
-        //    CellStyle.BackColor = Color.Red;
-        //    dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = CellStyle;
-        //}
-
-
-        //public enum Color { Red, Yellow, Blue, Pink, Green, LightBlue }
-
-
-
-        //private void gridControl1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //    DataGridViewCellStyle CellStyle = new DataGridViewCellStyle();
-        //    CellStyle.BackColor = Color.Red;
-        //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = CellStyle;
-
-        //}
-
-        // public event DataGridViewCellEventHandler CellClick;
-
-
-        //private void GridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //    Color c = (Color)(new Random()).Next(0, 3);
-        //    switch (c) {
-        //        case Color.Beige:
-        //            c = Color.Red;
-        //            break;
-        //        case Color.Red:
-        //            c = Color.Yellow;
-        //            break;
-        //        case Color.Yellow:
-        //            c = Color.Blue;
-        //            break;
-        //        case Color.Blue:
-        //            c = Color.Pink;
-        //            break;
-        //        case Color.Pink:
-        //            c = Color.Green;
-        //            break;
-        //        case Color.Green:
-        //            c = Color.LightBlue;
-        //            break;
-        //        case Color.LightBlue:
-        //            c = Color.Red;
-        //            break;
-        //        default:
-        //            c = Color.Red;
-        //            break;
-
-        //    }
-        //}
-
-        //public Color c = Color.Beige;
-
-        //public enum Color { Beige, Red, Yellow, Green, Blue, Pink, LightBlue }
-
-
-        //private void gridControl1_Click(object sender, EventArgs e)
-        //{
-
-        //    Color c = (Color)(new Random()).Next(0, 3);
-        //    switch (c) {
-        //        case Color.Beige:
-        //            c = Color.Red;
-        //            break;
-        //        case Color.Red:
-        //            c = Color.Yellow;
-        //            break;
-        //        case Color.Yellow:
-        //            c = Color.Blue;
-        //            break;
-        //        case Color.Blue:
-        //            c = Color.Pink;
-        //            break;
-        //        case Color.Pink:
-        //            c = Color.Green;
-        //            break;
-        //        case Color.Green:
-        //            c = Color.LightBlue;
-        //            break;
-        //        case Color.LightBlue:
-        //            c = Color.Red;
-        //            break;
-        //        default:
-        //            c = Color.Red;
-        //            break;
-        //    }
+        private void gridControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            GridControl grid = sender as GridControl;
+            if (grid == null) return;
+            // Get a View at the current point.
+            BaseView view = grid.GetViewAt(e.Location);
+            // Retrieve information on the current View element.
+            BaseHitInfo baseHI = view.CalcHitInfo(e.Location);
+            GridHitInfo gridHI = baseHI as GridHitInfo;
+            if (!gridHI.InRowCell) {
+                return;
+            }
+            var index = gridView1.GetDataSourceRowIndex(gridHI.RowHandle);
+            var table = grid.DataSource as DataTable;            
+            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[ClickCount]);
+            ClickCount++;
+            if(ClickCount == 6) { ClickCount = 0; }
+        }
     }
-
 }
+
+
