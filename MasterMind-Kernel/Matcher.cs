@@ -17,10 +17,10 @@ namespace MasterMind_Kernel
 
         public void UserInput(string v)
         {
-            Debug.Assert(v.Length == secret_.Length);
+            Debug.Assert(v.Length == Secret.Length);
             var Buffer = new StringBuilder();
-            
-            var temp = secret_;
+
+            var temp = Secret;
             for (int Index = 0; Index < v.Length; ++Index) {
                 if (temp[Index] == v[Index]) {
                     Buffer.Append('2');
@@ -35,9 +35,9 @@ namespace MasterMind_Kernel
                     temp = ReplaceWithSpace(temp, temp.IndexOf(v[Index]));
                 }
             }
-            for(int index = Buffer.Length; index < v.Length; ++index) {
+            for (int index = Buffer.Length; index < v.Length; ++index) {
                 Buffer.Append('0');
-            }           
+            }
 
             match_ = Buffer.ToString();
             count_++;
@@ -46,7 +46,8 @@ namespace MasterMind_Kernel
         private string secret_;
         public string Secret
         {
-            get { return secret_; }
+            //----------------------------------------------------------Hart Gecodete Secret
+            get { return "123456"/*secret_*/; }
             set { secret_ = value; }
         }
 
@@ -69,7 +70,7 @@ namespace MasterMind_Kernel
             get { return match_; }
         }
 
-        string ReplaceWithSpace(string input, int index, char replace=' ')
+        public string ReplaceWithSpace(string input, int index, char replace = ' ')
         {
             var Remover = new StringBuilder(input);
             Remover[index] = replace;

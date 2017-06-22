@@ -30,7 +30,7 @@
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.matcherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.matcherBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl12 = new DevExpress.XtraLayout.LayoutControl();
             this.ButtonValidate = new DevExpress.XtraEditors.SimpleButton();
@@ -62,6 +62,7 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.matcherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup15 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
@@ -69,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl12)).BeginInit();
@@ -97,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guessesBindingSource)).BeginInit();
@@ -125,9 +127,9 @@
             this.textEdit1.StyleController = this.layoutControl1;
             this.textEdit1.TabIndex = 17;
             // 
-            // matcherBindingSource
+            // matcherBindingSource1
             // 
-            this.matcherBindingSource.DataSource = typeof(MasterMind_Kernel.Matcher);
+            this.matcherBindingSource1.DataSource = typeof(MasterMind_Kernel.Matcher);
             // 
             // layoutControl2
             // 
@@ -508,6 +510,10 @@
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // matcherBindingSource
+            // 
+            this.matcherBindingSource.DataSource = typeof(MasterMind_Kernel.Matcher);
+            // 
             // layoutControlGroup5
             // 
             this.layoutControlGroup5.CustomizationFormText = "layoutControlGroup3";
@@ -546,7 +552,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl12)).EndInit();
@@ -574,6 +580,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guessesBindingSource)).EndInit();
@@ -621,5 +628,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private System.Windows.Forms.BindingSource guessesBindingSource;
+        private System.Windows.Forms.BindingSource matcherBindingSource1;
     }
 }

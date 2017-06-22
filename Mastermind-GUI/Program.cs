@@ -34,7 +34,11 @@ namespace MasterMind_GUI
                     Kernel.Bind<Matcher>().ToSelf();
                     Kernel.Bind<GameVM>().ToSelf();
                     Kernel.Bind<ViewModelBase>().ToSelf().InSingletonScope();
-                    Kernel.Bind<GameForm>().ToSelf().InSingletonScope();                   
+                    Kernel.Bind<GameForm>().ToSelf().InSingletonScope();
+                    Kernel.Bind<UserGuess>().ToSelf().InSingletonScope();
+                    Kernel.Bind<UserGuessVM>().ToSelf().InSingletonScope();
+                    Kernel.Bind<UserGuessDisplayVM>().ToSelf().InSingletonScope();
+                   
                 }
             }
 

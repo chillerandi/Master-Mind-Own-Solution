@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MasterMind_Kernel
 {
     public class Game
-    {
+    {        
         Matcher matcher;
         public int MaxGuesses;
 
@@ -27,7 +27,7 @@ namespace MasterMind_Kernel
         private int secretLength_;
         public int SecretLength
         {
-            get { return secretLength_; }
+            get { return 6; }
             set { secretLength_ = value; }
         }
 
@@ -62,6 +62,7 @@ namespace MasterMind_Kernel
             if (v.Any(c => char.IsDigit(c) == false)) throw new ArgumentException("Die Eingabe darf nur aus Ziffern bestehen!");
             matcher.UserInput(v);
         }
+
         public string Info()
         {
             return matcher.Match;

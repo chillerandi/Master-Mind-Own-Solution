@@ -7,12 +7,13 @@ using FJ;
 using FJ.Interfaces;
 using System.Drawing;
 using MasterMind_Kernel;
+using System.Data;
 
 namespace Mastermind_GUI.ViewModels
 {
     public class GameVM : ViewModelBase
     {        
-        public GameVM(FJ.Interfaces.Factory factory, Game game)
+        public GameVM(FJ.Interfaces.Factory factory, Game game, UserGuess userGuess )
         {
             Resolver = factory;
             model = game;
@@ -41,26 +42,23 @@ namespace Mastermind_GUI.ViewModels
             get { return model.MaxGuesses; }
             set { model.MaxGuesses = value; }
         }
-
-        internal void addGuess()
-        {
-           
-        }
-
-        public string UserGuessString(Brush[] brushes)
-        {            
-            StringBuilder Builder = new StringBuilder(); 
-            foreach(var brush in brushes) {
-                if (brush == Brushes.Red) Builder.Append("1");
-                if (brush == Brushes.Yellow) Builder.Append("2");
-                if (brush == Brushes.Green) Builder.Append("3");
-                if (brush == Brushes.Pink) Builder.Append("4");
-                if (brush == Brushes.Blue) Builder.Append("5");
-                if (brush == Brushes.LightBlue) Builder.Append("6");
-            }
+              
+        public DataTable CreateTable(int RowCount)        {
             
-            model.UserInput(Builder.ToString());
-            return model.Info();           
+            // --------------------------BindingList statt DataTable???
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("Colour1", typeof(Brush));
+            tbl.Columns.Add("Colour2", typeof(Brush));
+            tbl.Columns.Add("Colour3", typeof(Brush));
+            tbl.Columns.Add("Colour4", typeof(Brush));
+            tbl.Columns.Add("Colour5", typeof(Brush));
+            tbl.Columns.Add("Colour6", typeof(Brush));
+            for (int i = 0; i < RowCount; i++) {
+                tbl.Rows.Add(Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray);
+            }
+            return tbl;
         }
+
+        
     }
 }
