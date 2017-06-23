@@ -47,7 +47,7 @@ namespace MasterMind_Kernel
         public string Secret
         {
             //----------------------------------------------------------Hart Gecodete Secret
-            get { return "123456"/*secret_*/; }
+            get { return secret_; }
             set { secret_ = value; }
         }
 

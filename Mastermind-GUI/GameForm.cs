@@ -13,25 +13,20 @@ using MasterMind_Kernel;
 namespace MasterMind_GUI
 {
     public partial class GameForm : DevExpress.XtraEditors.XtraForm
-    {
-        Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
-
-        //private MouseEventHandler mouseClick;
-        private int ClickCount = 0;
-        private int RowCount = 0;
-        Brush[] UserInput = new Brush[] { };
-
-        GameVM model { get; set; }
-
-        public GameForm(FJ.Interfaces.Factory factory, GameVM gameVM, UserGuessVM userGuessVM)
+    {     
+        public GameForm(FJ.Interfaces.Factory factory, GameVM gameVM)
         {
-            InitializeComponent();
-            //this.MouseClick += mouseClick;
-            gridControl1.DataSource = gameVM.CreateTable(30);
+            InitializeComponent();                                  
             model = gameVM;
+            model.model.Start(4, 10);
+            matcherBindingSource.DataSource = model;
+            gridControl1.DataSource = model.CreateTable(10);            
         }
-       
-       
+
+        Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
+        //Brush[] UserInput = new Brush[] { };     
+
+        public GameVM model { get; private set; }
 
         private void gridControl1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
         {
@@ -43,7 +38,7 @@ namespace MasterMind_GUI
         }
 
         private void gridControl1_MouseClick(object sender, MouseEventArgs e)
-        {
+        {            
             GridControl grid = sender as GridControl;
             if (grid == null) return;
             // Get a View at the current point.
@@ -55,20 +50,24 @@ namespace MasterMind_GUI
                 return;
             }
             var index = gridView1.GetDataSourceRowIndex(gridHI.RowHandle);
-            var table = grid.DataSource as DataTable; 
-            
-            // Rows.Getfield routine um zu sehen, welche Farbe gesetzt ist, danach hoch inkrementieren (IndexOf)
-                       
-            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[ClickCount]);
-            
-            ClickCount++;
-            if(ClickCount == 6) { ClickCount = 0; }
+            var table = grid.DataSource as DataTable;
+            var current = table.Rows[index].ItemArray[gridHI.Column.AbsoluteIndex];
+            var currentIndex = Array.IndexOf(brushes, current)+1;
+            if(currentIndex >= brushes.Length) { currentIndex = 0; }
+            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[currentIndex]);
         }
 
         private void ButtonValidate_Click(object sender, EventArgs e)
         {
-            new UserGuess();  
+            model.MakeGuess();           
         }
+
+        private void Button_Red_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
 

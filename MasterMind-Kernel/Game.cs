@@ -10,6 +10,13 @@ namespace MasterMind_Kernel
     {        
         Matcher matcher;
         public int MaxGuesses;
+        public enum GameState
+        {
+            Initial,
+            Running,
+            won,
+            lost
+        }
 
         public GameState State
         {
@@ -27,12 +34,9 @@ namespace MasterMind_Kernel
         private int secretLength_;
         public int SecretLength
         {
-            get { return 6; }
+            get { return secretLength_; }
             set { secretLength_ = value; }
         }
-
-      
-        //public string numberCount;
 
         public void Start(int secretLength_, int maxGuesses)
         {
@@ -43,7 +47,7 @@ namespace MasterMind_Kernel
             matcher = new Matcher();
             var Generator = new Random(DateTime.Now.Millisecond);
             for (int Index = 0; Index < Count; ++Index) {
-                Result.Append(Generator.Next(1, 6));
+                Result.Append(Generator.Next(1, 7));
             }
             matcher.Secret = Result.ToString();
         }
@@ -63,17 +67,12 @@ namespace MasterMind_Kernel
             matcher.UserInput(v);
         }
 
+        public string Match { get { return Info(); } }
         public string Info()
-        {
+        {            
             return matcher.Match;
         }
     }
 
-    public enum GameState
-    {
-        Initial,
-        Running,
-        won,
-        lost
-    }
+   
 }

@@ -25,7 +25,7 @@ namespace MasterMind_Tests
         public void Initial_Game_State()
         {
             var Target = new Game();
-            Assert.AreEqual(GameState.Initial, Target.State);
+            Assert.AreEqual(Game.GameState.Initial, Target.State);
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace MasterMind_Tests
         {
             var Target = new Game();
             Target.Start(5, 10);
-            Assert.AreEqual(GameState.Running, Target.State);
+            Assert.AreEqual(Game.GameState.Running, Target.State);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace MasterMind_Tests
             var Target = new Game();
             Target.Start(5, 10);
             Target.UserInput("15324");
-            Assert.AreNotEqual(GameState.Initial, Target.State);
+            Assert.AreNotEqual(Game.GameState.Initial, Target.State);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace MasterMind_Tests
             var Target = new Game();
             Target.Start(5, 10);
             Target.UserInput(Target.Secret);
-            Assert.AreEqual(GameState.won, Target.State);
+            Assert.AreEqual(Game.GameState.won, Target.State);
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace MasterMind_Tests
             for (var i = 0; i < Target.MaxGuesses; i++) {
                 Target.UserInput("15324");
             }
-            Assert.AreEqual(GameState.lost, Target.State);
+            Assert.AreEqual(Game.GameState.lost, Target.State);
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace MasterMind_Tests
             for (var i = 0; i < Target.MaxGuesses - 1; i++) {
                 Target.UserInput("15324");
             }
-            Assert.AreEqual(GameState.Running, Target.State);
+            Assert.AreEqual(Game.GameState.Running, Target.State);
         }
 
         [Test]
@@ -119,7 +119,7 @@ namespace MasterMind_Tests
             }
             else {
                 for (int i = 0; i < Target.MaxGuesses; i++) { Target.UserInput("456"); }
-            Assert.AreEqual(GameState.lost, Target.State);
+            Assert.AreEqual(Game.GameState.lost, Target.State);
             }
         }
 

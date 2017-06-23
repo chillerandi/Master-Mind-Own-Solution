@@ -20,8 +20,7 @@ namespace MasterMind_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(FJ.Factory.Instance.Get<GameForm>());
-            //var game = new Game();
+            Application.Run(FJ.Factory.Instance.Get<GameForm>());            
         }
 
         public class Module : FJ.FactoryModule
@@ -30,15 +29,11 @@ namespace MasterMind_GUI
             {
                 public override void Load()
                 {
-                    Kernel.Bind<Game>().ToSelf();
-                    Kernel.Bind<Matcher>().ToSelf();
-                    Kernel.Bind<GameVM>().ToSelf();
+                    // Alles was einen Status hat, muss in SingletonScope, alles was keinen Status hat, Kann, muss aber nicht in SS
+                    Kernel.Bind<Game>().ToSelf().InSingletonScope();                    
+                    Kernel.Bind<GameVM>().ToSelf().InSingletonScope();
                     Kernel.Bind<ViewModelBase>().ToSelf().InSingletonScope();
-                    Kernel.Bind<GameForm>().ToSelf().InSingletonScope();
-                    Kernel.Bind<UserGuess>().ToSelf().InSingletonScope();
-                    Kernel.Bind<UserGuessVM>().ToSelf().InSingletonScope();
-                    Kernel.Bind<UserGuessDisplayVM>().ToSelf().InSingletonScope();
-                   
+                    Kernel.Bind<GameForm>().ToSelf().InSingletonScope();   
                 }
             }
 

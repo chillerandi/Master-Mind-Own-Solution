@@ -1,4 +1,5 @@
 ﻿using MasterMind_Kernel;
+using MasterMind_GUI;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Master_Mind
                 Console.WriteLine(String.Format("Die geheime Zahl muss aus {0} Ziffern zwischen 0 und 6 bestehen!", PCLength));
                 Console.WriteLine("Eine 2 bedeutet einen Treffer an einer richtigen Stelle.\nEine 1 bedeutet eine richtige Zahl, aber an der falschen Stelle.\nEine 0 bedeutet daneben.\n"
                 + "Bitte gib Deinen Tip ab und bestätige mit der Enter-Taste! Viel Erfolg!");
-                while (game.State == GameState.Running) {
+                while (game.State == Game.GameState.Running) {
                     try {
                         var input = Console.ReadLine();
                         game.UserInput(input);
@@ -38,7 +39,7 @@ namespace Master_Mind
                         Console.WriteLine(error.Message);
                     }
                 }
-                if (game.State == GameState.won) {
+                if (game.State == Game.GameState.won) {
                     Console.WriteLine("Du hast gewonnen!!");
                     Console.WriteLine("Die gesuchte Zahl war tatsächlich: " + game.Secret);
                     Console.Write("\nWürdest Du gerne nochmal spielen (J/N)? Beenden mit jeder anderen Taste.");
