@@ -9,36 +9,37 @@ using DevExpress.XtraGrid.Views.Base.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Mastermind_GUI.ViewModels;
 using MasterMind_Kernel;
+using DevExpress.XtraEditors;
 
 namespace MasterMind_GUI
 {
     public partial class GameForm : DevExpress.XtraEditors.XtraForm
-    {     
-        public GameForm(FJ.Interfaces.Factory factory, GameVM gameVM)
-        {
-            InitializeComponent();                                  
+    {
+        public GameForm(GameVM gameVM)        {
+            InitializeComponent();
             model = gameVM;
-            model.model.Start(4, 10);
+            model.model.Start(4, 12);
             matcherBindingSource.DataSource = model;
-            gridControl1.DataSource = model.CreateTable(10);            
+            gridControl1.DataSource = model.CreateTable(12);
         }
 
         Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
-        //Brush[] UserInput = new Brush[] { };     
 
         public GameVM model { get; private set; }
+        public int CurrentIndex { get; private set; }
 
         private void gridControl1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
         {
             GridView currentView = sender as GridView;
             Rectangle r = e.Bounds;
-            var Background = (Brush)currentView.GetRowCellValue(e.RowHandle, e.Column);
+            var Background = currentView.GetRowCellValue(e.RowHandle, e.Column) as Brush;
+            if (Background == null) { return; }
             e.Graphics.FillRectangle(Background, r);
             e.Handled = true;
         }
 
         private void gridControl1_MouseClick(object sender, MouseEventArgs e)
-        {            
+        {
             GridControl grid = sender as GridControl;
             if (grid == null) return;
             // Get a View at the current point.
@@ -51,23 +52,31 @@ namespace MasterMind_GUI
             }
             var index = gridView1.GetDataSourceRowIndex(gridHI.RowHandle);
             var table = grid.DataSource as DataTable;
-            var current = table.Rows[index].ItemArray[gridHI.Column.AbsoluteIndex];
-            var currentIndex = Array.IndexOf(brushes, current)+1;
-            if(currentIndex >= brushes.Length) { currentIndex = 0; }
-            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[currentIndex]);
+            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[CurrentIndex]);
         }
 
         private void ButtonValidate_Click(object sender, EventArgs e)
         {
-            model.MakeGuess();           
+            model.MakeGuess();
+            if (model.model.State == Game.GameState.won) { MessageBox.Show("Du hast gewonnen!!!"); }
+            if (model.model.State == Game.GameState.lost) { MessageBox.Show("Du hast verloren!!!"); }
+
         }
 
-        private void Button_Red_Click(object sender, EventArgs e)
+        private void ColorButtonClick(object sender, EventArgs e)
         {
-
+            var Button = sender as SimpleButton;
+            CurrentIndex = Int32.Parse(Button.Tag.ToString());
         }
 
-        
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            GameForm NewForm = new GameForm(model);
+            NewForm.Show();
+            this.Dispose(false);
+
+
+        }
     }
 }
 

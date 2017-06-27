@@ -43,5 +43,16 @@ namespace MasterMind_Tests
             Target.UserInput("52342");
             Assert.AreEqual("22220", Target.Match);
         }
+
+        [Test]
+        public void Matcher_Produces_RowMatches()
+        {
+            var Target = new Matcher { MaxGuesses = 10, Secret = "52345" };            
+            Target.UserInput("56666");
+            Target.UserInput("52666");
+            Target.UserInput("52665");
+            Assert.AreEqual(3, Target.RowMatches.Count());
+            Assert.AreEqual("22200", Target.RowMatches.Last());
+        }
     }
 }

@@ -29,18 +29,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.matcherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.Button_LightBlue = new DevExpress.XtraEditors.SimpleButton();
+            this.Button_Blue = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl12 = new DevExpress.XtraLayout.LayoutControl();
             this.ButtonValidate = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup12 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.Button_Pink = new DevExpress.XtraEditors.SimpleButton();
+            this.Button_Green = new DevExpress.XtraEditors.SimpleButton();
+            this.Button_Yellow = new DevExpress.XtraEditors.SimpleButton();
             this.Button_Red = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -59,17 +57,20 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.matcherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup15 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.guessesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl12)).BeginInit();
@@ -94,17 +95,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guessesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.textEdit1);
             this.layoutControl1.Controls.Add(this.layoutControl2);
             this.layoutControl1.Controls.Add(this.layoutControl11);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,67 +116,58 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1010, 160, 443, 629);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(629, 429);
+            this.layoutControl1.Size = new System.Drawing.Size(476, 530);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // textEdit1
-            // 
-            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.matcherBindingSource, "Match", true));
-            this.textEdit1.Location = new System.Drawing.Point(492, 397);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(115, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 17;
-            // 
-            // matcherBindingSource
-            // 
-            this.matcherBindingSource.DataSource = typeof(Mastermind_GUI.ViewModels.GameVM);
-            // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.simpleButton5);
-            this.layoutControl2.Controls.Add(this.simpleButton1);
+            this.layoutControl2.Controls.Add(this.Button_LightBlue);
+            this.layoutControl2.Controls.Add(this.Button_Blue);
             this.layoutControl2.Controls.Add(this.layoutControl12);
-            this.layoutControl2.Controls.Add(this.simpleButton4);
-            this.layoutControl2.Controls.Add(this.simpleButton3);
-            this.layoutControl2.Controls.Add(this.simpleButton2);
+            this.layoutControl2.Controls.Add(this.Button_Pink);
+            this.layoutControl2.Controls.Add(this.Button_Green);
+            this.layoutControl2.Controls.Add(this.Button_Yellow);
             this.layoutControl2.Controls.Add(this.Button_Red);
-            this.layoutControl2.Location = new System.Drawing.Point(12, 318);
+            this.layoutControl2.Location = new System.Drawing.Point(12, 448);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1008, 180, 250, 350);
             this.layoutControl2.Root = this.Root;
-            this.layoutControl2.Size = new System.Drawing.Size(605, 75);
+            this.layoutControl2.Size = new System.Drawing.Size(452, 70);
             this.layoutControl2.TabIndex = 15;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // simpleButton5
+            // Button_LightBlue
             // 
-            this.simpleButton5.Image = global::Mastermind_GUI.Properties.Resources.Hellblau_Pin;
-            this.simpleButton5.Location = new System.Drawing.Point(282, 12);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(50, 51);
-            this.simpleButton5.StyleController = this.layoutControl2;
-            this.simpleButton5.TabIndex = 14;
+            this.Button_LightBlue.Image = global::Mastermind_GUI.Properties.Resources.Hellblau_Pin;
+            this.Button_LightBlue.Location = new System.Drawing.Point(282, 12);
+            this.Button_LightBlue.Name = "Button_LightBlue";
+            this.Button_LightBlue.Size = new System.Drawing.Size(50, 46);
+            this.Button_LightBlue.StyleController = this.layoutControl2;
+            this.Button_LightBlue.TabIndex = 14;
+            this.Button_LightBlue.Tag = "5";
+            this.Button_LightBlue.Click += new System.EventHandler(this.ColorButtonClick);
             // 
-            // simpleButton1
+            // Button_Blue
             // 
-            this.simpleButton1.Image = global::Mastermind_GUI.Properties.Resources.Blau_Pin;
-            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(228, 12);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(50, 51);
-            this.simpleButton1.StyleController = this.layoutControl2;
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "simpleButton1";
+            this.Button_Blue.Image = global::Mastermind_GUI.Properties.Resources.Blau_Pin;
+            this.Button_Blue.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.Button_Blue.Location = new System.Drawing.Point(228, 12);
+            this.Button_Blue.Name = "Button_Blue";
+            this.Button_Blue.Size = new System.Drawing.Size(50, 46);
+            this.Button_Blue.StyleController = this.layoutControl2;
+            this.Button_Blue.TabIndex = 13;
+            this.Button_Blue.Tag = "4";
+            this.Button_Blue.Text = "simpleButton1";
+            this.Button_Blue.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // layoutControl12
             // 
             this.layoutControl12.Controls.Add(this.ButtonValidate);
-            this.layoutControl12.Location = new System.Drawing.Point(482, 12);
+            this.layoutControl12.Location = new System.Drawing.Point(358, 12);
             this.layoutControl12.Name = "layoutControl12";
             this.layoutControl12.Root = this.layoutControlGroup12;
-            this.layoutControl12.Size = new System.Drawing.Size(111, 51);
+            this.layoutControl12.Size = new System.Drawing.Size(82, 46);
             this.layoutControl12.TabIndex = 10;
             this.layoutControl12.Text = "layoutControl12";
             // 
@@ -181,7 +176,7 @@
             this.ButtonValidate.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.ButtonValidate.Location = new System.Drawing.Point(2, 2);
             this.ButtonValidate.Name = "ButtonValidate";
-            this.ButtonValidate.Size = new System.Drawing.Size(107, 47);
+            this.ButtonValidate.Size = new System.Drawing.Size(78, 42);
             this.ButtonValidate.StyleController = this.layoutControl12;
             this.ButtonValidate.TabIndex = 4;
             this.ButtonValidate.Text = "Validate";
@@ -197,7 +192,7 @@
             this.layoutControlGroup12.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup12.Name = "layoutControlGroup12";
             this.layoutControlGroup12.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup12.Size = new System.Drawing.Size(111, 51);
+            this.layoutControlGroup12.Size = new System.Drawing.Size(82, 46);
             this.layoutControlGroup12.Text = "layoutControlGroup12";
             this.layoutControlGroup12.TextVisible = false;
             // 
@@ -208,43 +203,49 @@
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem18.MinSize = new System.Drawing.Size(82, 26);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(111, 51);
+            this.layoutControlItem18.Size = new System.Drawing.Size(82, 46);
             this.layoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem18.Text = "layoutControlItem18";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
-            // simpleButton4
+            // Button_Pink
             // 
-            this.simpleButton4.Image = global::Mastermind_GUI.Properties.Resources.Pink_Pin;
-            this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton4.Location = new System.Drawing.Point(174, 12);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(50, 51);
-            this.simpleButton4.StyleController = this.layoutControl2;
-            this.simpleButton4.TabIndex = 7;
-            this.simpleButton4.Text = "simpleButton4";
+            this.Button_Pink.Image = global::Mastermind_GUI.Properties.Resources.Pink_Pin;
+            this.Button_Pink.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.Button_Pink.Location = new System.Drawing.Point(174, 12);
+            this.Button_Pink.Name = "Button_Pink";
+            this.Button_Pink.Size = new System.Drawing.Size(50, 46);
+            this.Button_Pink.StyleController = this.layoutControl2;
+            this.Button_Pink.TabIndex = 7;
+            this.Button_Pink.Tag = "3";
+            this.Button_Pink.Text = "simpleButton4";
+            this.Button_Pink.Click += new System.EventHandler(this.ColorButtonClick);
             // 
-            // simpleButton3
+            // Button_Green
             // 
-            this.simpleButton3.Image = global::Mastermind_GUI.Properties.Resources.Grün_Pin;
-            this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton3.Location = new System.Drawing.Point(120, 12);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(50, 51);
-            this.simpleButton3.StyleController = this.layoutControl2;
-            this.simpleButton3.TabIndex = 11;
+            this.Button_Green.Image = global::Mastermind_GUI.Properties.Resources.Grün_Pin;
+            this.Button_Green.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.Button_Green.Location = new System.Drawing.Point(120, 12);
+            this.Button_Green.Name = "Button_Green";
+            this.Button_Green.Size = new System.Drawing.Size(50, 46);
+            this.Button_Green.StyleController = this.layoutControl2;
+            this.Button_Green.TabIndex = 11;
+            this.Button_Green.Tag = "2";
+            this.Button_Green.Click += new System.EventHandler(this.ColorButtonClick);
             // 
-            // simpleButton2
+            // Button_Yellow
             // 
-            this.simpleButton2.Image = global::Mastermind_GUI.Properties.Resources.Gelb_Pin;
-            this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton2.Location = new System.Drawing.Point(66, 12);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(50, 51);
-            this.simpleButton2.StyleController = this.layoutControl2;
-            this.simpleButton2.TabIndex = 5;
-            this.simpleButton2.Text = "simpleButton2";
+            this.Button_Yellow.Image = global::Mastermind_GUI.Properties.Resources.Gelb_Pin;
+            this.Button_Yellow.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.Button_Yellow.Location = new System.Drawing.Point(66, 12);
+            this.Button_Yellow.Name = "Button_Yellow";
+            this.Button_Yellow.Size = new System.Drawing.Size(50, 46);
+            this.Button_Yellow.StyleController = this.layoutControl2;
+            this.Button_Yellow.TabIndex = 5;
+            this.Button_Yellow.Tag = "1";
+            this.Button_Yellow.Text = "simpleButton2";
+            this.Button_Yellow.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // Button_Red
             // 
@@ -261,9 +262,11 @@
             this.Button_Red.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.Button_Red.Location = new System.Drawing.Point(12, 12);
             this.Button_Red.Name = "Button_Red";
-            this.Button_Red.Size = new System.Drawing.Size(50, 51);
+            this.Button_Red.Size = new System.Drawing.Size(50, 46);
             this.Button_Red.StyleController = this.layoutControl2;
             this.Button_Red.TabIndex = 12;
+            this.Button_Red.Tag = "0";
+            this.Button_Red.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // Root
             // 
@@ -281,7 +284,7 @@
             this.layoutControlItem5});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(605, 75);
+            this.Root.Size = new System.Drawing.Size(452, 70);
             this.Root.Text = "Root";
             this.Root.TextVisible = false;
             // 
@@ -292,7 +295,7 @@
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(54, 50);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(54, 55);
+            this.layoutControlItem11.Size = new System.Drawing.Size(54, 50);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.Text = "layoutControlItem11";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
@@ -300,12 +303,12 @@
             // 
             // layoutControlItem12
             // 
-            this.layoutControlItem12.Control = this.simpleButton2;
+            this.layoutControlItem12.Control = this.Button_Yellow;
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
             this.layoutControlItem12.Location = new System.Drawing.Point(54, 0);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(54, 50);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(54, 55);
+            this.layoutControlItem12.Size = new System.Drawing.Size(54, 50);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.Text = "layoutControlItem12";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
@@ -313,12 +316,12 @@
             // 
             // layoutControlItem13
             // 
-            this.layoutControlItem13.Control = this.simpleButton3;
+            this.layoutControlItem13.Control = this.Button_Green;
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem13";
             this.layoutControlItem13.Location = new System.Drawing.Point(108, 0);
             this.layoutControlItem13.MinSize = new System.Drawing.Size(54, 50);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(54, 55);
+            this.layoutControlItem13.Size = new System.Drawing.Size(54, 50);
             this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem13.Text = "layoutControlItem13";
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
@@ -326,12 +329,12 @@
             // 
             // layoutControlItem14
             // 
-            this.layoutControlItem14.Control = this.simpleButton4;
+            this.layoutControlItem14.Control = this.Button_Pink;
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem14.Location = new System.Drawing.Point(162, 0);
             this.layoutControlItem14.MinSize = new System.Drawing.Size(54, 50);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(54, 55);
+            this.layoutControlItem14.Size = new System.Drawing.Size(54, 50);
             this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem14.Text = "layoutControlItem14";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
@@ -341,9 +344,9 @@
             // 
             this.layoutControlItem17.Control = this.layoutControl12;
             this.layoutControlItem17.CustomizationFormText = "layoutControlItem17";
-            this.layoutControlItem17.Location = new System.Drawing.Point(470, 0);
+            this.layoutControlItem17.Location = new System.Drawing.Point(346, 0);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(115, 55);
+            this.layoutControlItem17.Size = new System.Drawing.Size(86, 50);
             this.layoutControlItem17.Text = "layoutControlItem17";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
@@ -354,18 +357,18 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(324, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(146, 55);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(22, 50);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.simpleButton1;
+            this.layoutControlItem4.Control = this.Button_Blue;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(216, 0);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(54, 50);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(54, 55);
+            this.layoutControlItem4.Size = new System.Drawing.Size(54, 50);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -373,12 +376,12 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.simpleButton5;
+            this.layoutControlItem5.Control = this.Button_LightBlue;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
             this.layoutControlItem5.Location = new System.Drawing.Point(270, 0);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(54, 50);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(54, 55);
+            this.layoutControlItem5.Size = new System.Drawing.Size(54, 50);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -386,20 +389,21 @@
             // 
             // layoutControl11
             // 
+            this.layoutControl11.Controls.Add(this.simpleButton1);
             this.layoutControl11.Controls.Add(this.gridControl1);
             this.layoutControl11.Location = new System.Drawing.Point(12, 12);
             this.layoutControl11.Name = "layoutControl11";
             this.layoutControl11.Root = this.layoutControlGroup11;
-            this.layoutControl11.Size = new System.Drawing.Size(605, 302);
+            this.layoutControl11.Size = new System.Drawing.Size(452, 432);
             this.layoutControl11.TabIndex = 13;
             this.layoutControl11.Text = "layoutControl11";
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 12);
+            this.gridControl1.Location = new System.Drawing.Point(12, 38);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(581, 278);
+            this.gridControl1.Size = new System.Drawing.Size(428, 382);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -417,6 +421,8 @@
             this.gridView1.OptionsCustomization.AllowGroup = false;
             this.gridView1.OptionsCustomization.AllowSort = false;
             this.gridView1.OptionsMenu.EnableColumnMenu = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.RowSeparatorHeight = 1;
             this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridControl1_CustomDrawCell);
             // 
             // layoutControlGroup11
@@ -425,10 +431,12 @@
             this.layoutControlGroup11.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup11.GroupBordersVisible = false;
             this.layoutControlGroup11.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.emptySpaceItem2});
             this.layoutControlGroup11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup11.Name = "layoutControlGroup11";
-            this.layoutControlGroup11.Size = new System.Drawing.Size(605, 302);
+            this.layoutControlGroup11.Size = new System.Drawing.Size(452, 432);
             this.layoutControlGroup11.Text = "layoutControlGroup11";
             this.layoutControlGroup11.TextVisible = false;
             // 
@@ -436,9 +444,9 @@
             // 
             this.layoutControlItem2.Control = this.gridControl1;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(585, 282);
+            this.layoutControlItem2.Size = new System.Drawing.Size(432, 386);
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -450,13 +458,10 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem10,
-            this.layoutControlItem1,
-            this.layoutControlItem3,
-            this.emptySpaceItem2,
-            this.emptySpaceItem3});
+            this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(629, 429);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(476, 530);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -466,7 +471,7 @@
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(609, 306);
+            this.layoutControlItem10.Size = new System.Drawing.Size(456, 436);
             this.layoutControlItem10.Text = "layoutControlItem10";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
@@ -475,42 +480,16 @@
             // 
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 306);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 436);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(609, 79);
+            this.layoutControlItem1.Size = new System.Drawing.Size(456, 74);
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlItem3
+            // matcherBindingSource
             // 
-            this.layoutControlItem3.Control = this.textEdit1;
-            this.layoutControlItem3.CustomizationFormText = "Ergebnis : ";
-            this.layoutControlItem3.Location = new System.Drawing.Point(426, 385);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(173, 24);
-            this.layoutControlItem3.Text = "Ergebnis : ";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 385);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(426, 24);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(599, 385);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(10, 24);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.matcherBindingSource.DataSource = typeof(Mastermind_GUI.ViewModels.GameVM);
             // 
             // layoutControlGroup5
             // 
@@ -539,18 +518,87 @@
             this.defaultLookAndFeel1.EnableBonusSkins = true;
             this.defaultLookAndFeel1.LookAndFeel.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.False;
             // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(98, 261);
+            this.layoutControlItem8.Text = "layoutControlItem8";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.CustomizationFormText = "layoutControlItem20";
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(122, 385);
+            this.layoutControlItem20.Text = "layoutControlItem20";
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem20.TextVisible = false;
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.CustomizationFormText = "layoutControlItem19";
+            this.layoutControlItem19.Location = new System.Drawing.Point(0, 361);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(122, 24);
+            this.layoutControlItem19.Text = "layoutControlItem19";
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem19.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(122, 337);
+            this.layoutControlItem7.Text = "layoutControlItem7";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(126, 22);
+            this.simpleButton1.StyleController = this.layoutControl11;
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "New Game";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.simpleButton1;
+            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(130, 26);
+            this.layoutControlItem3.Text = "layoutControlItem3";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(130, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(302, 26);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 429);
+            this.ClientSize = new System.Drawing.Size(476, 530);
             this.Controls.Add(this.layoutControl1);
             this.Name = "GameForm";
             this.Text = "Master Mind";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl12)).EndInit();
@@ -575,12 +623,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matcherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guessesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -596,9 +648,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup15;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton Button_Pink;
+        private DevExpress.XtraEditors.SimpleButton Button_Green;
+        private DevExpress.XtraEditors.SimpleButton Button_Yellow;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
@@ -611,19 +663,22 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.BindingSource matcherBindingSource;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private System.Windows.Forms.BindingSource guessesBindingSource;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton Button_Blue;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton Button_LightBlue;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

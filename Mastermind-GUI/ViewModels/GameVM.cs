@@ -14,15 +14,15 @@ namespace Mastermind_GUI.ViewModels
 {
     public class GameVM : ViewModelBase
     {
-        public GameVM(FJ.Interfaces.Factory factory, Game game)
+        public GameVM(/*FJ.Interfaces.Factory factory,*/ Game game)
         {
-            Resolver = factory;
+            //Resolver = factory;
             model = game;
         }
 
         public readonly Game model;
         private int GuessesCount = 0;
-
+        
         FJ.Interfaces.Factory Resolver
         {
             get; set;
@@ -45,21 +45,24 @@ namespace Mastermind_GUI.ViewModels
             set { model.MaxGuesses = value; }
         }
 
+        public string RowMatch
+        {
+            get { return model.RowMatch; }
+        }
+        
         public DataTable table { get; private set; }
         public DataTable CreateTable(int RowCount)
         {
-
             // --------------------------BindingList statt DataTable???----------------------------------------
             DataTable tbl = new DataTable();
             tbl.Columns.Add("Colour1", typeof(Brush));
             tbl.Columns.Add("Colour2", typeof(Brush));
             tbl.Columns.Add("Colour3", typeof(Brush));
             tbl.Columns.Add("Colour4", typeof(Brush));
-            //tbl.Columns.Add("Colour5", typeof(Brush));
-            //tbl.Columns.Add("Colour6", typeof(Brush));
+            tbl.Columns.Add("Score", typeof(String));
 
             for (int i = 0; i < RowCount; i++) {
-                tbl.Rows.Add(Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray/*, Brushes.LightGray, Brushes.LightGray*/);
+                tbl.Rows.Add(Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, Brushes.LightGray, RowMatch );
             }
             table = tbl;
             return table;
@@ -70,10 +73,11 @@ namespace Mastermind_GUI.ViewModels
             var colorRow = GetColorRow();
             if (colorRow.Contains(Brushes.LightGray)) return;
             MakeUserGuessString(colorRow);
+            var row = table.Rows[GuessesCount];
+            row[4] = Match;
             GuessesCount++;
-        }
-
-        // ###############################   ViewModel als BindingSource --> die Info aus Game in Match rein
+        }      
+       
         private string match;
         public string Match
         {
@@ -83,8 +87,8 @@ namespace Mastermind_GUI.ViewModels
 
         private Brush[] GetColorRow()
         {
-            var row = table.Rows[GuessesCount];
-            var brushes = table.Rows[GuessesCount].ItemArray.Cast<Brush>().ToArray();
+            var row = table.Rows[GuessesCount];   
+            var brushes = row.ItemArray.OfType<Brush>().ToArray();
             return brushes;
         }
 
@@ -102,7 +106,14 @@ namespace Mastermind_GUI.ViewModels
             }
             model.UserInput(Builder.ToString());
             Match = model.Info();
-          
+
         }
+
+        //public void MakeSecretToBrushArray()
+        //{
+        //    Brush[] SecretBrushMatch= new Brush[4];
+        //    foreach(int secretInt in model.Secret)
+        //    if(model.matcher.Secret. == "1") {}
+        //}
     }
 }

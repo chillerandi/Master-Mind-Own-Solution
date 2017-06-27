@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace MasterMind_Kernel
 {
     public class Game
-    {        
-        Matcher matcher;
+    {
+        public Matcher matcher;
         public int MaxGuesses;
         public enum GameState
         {
@@ -25,7 +25,7 @@ namespace MasterMind_Kernel
                   GameState.won : (matcher.Count >= MaxGuesses ? GameState.lost : GameState.Running));
             }
         }
-        
+
         public string Secret
         {
             get { return matcher.Secret; }
@@ -59,7 +59,7 @@ namespace MasterMind_Kernel
                 throw new InvalidOperationException("Spiel noch nicht gestartet oder schon gestoppt!");
             }
             // ----------------------- Eingabe auf Zahlen von 1 - 6 begrenzen ---------------------         
-            for (int i = 0; i < Count; ++i) {                
+            for (int i = 0; i < Count; ++i) {
                 if (v.Any(c => c > 54 == true) || v.Any(c => c < 49 == true)) { throw new InvalidOperationException("Es sind nur Zahlen von 1 - 6 erlaubt!"); }
             }
             if (v.Length != SecretLength) throw new ArgumentException(string.Format("Die Zahl muss aus {0} Ziffern bestehen!", SecretLength));
@@ -67,12 +67,17 @@ namespace MasterMind_Kernel
             matcher.UserInput(v);
         }
 
+        public string RowMatch { get { return matcher.RowMatches.Any() ? matcher.RowMatches.Last() : string.Empty; } }
+
+
         public string Match { get { return Info(); } }
+
         public string Info()
-        {            
+        {
             return matcher.Match;
         }
+
     }
 
-   
+
 }
