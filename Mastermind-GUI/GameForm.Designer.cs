@@ -50,10 +50,18 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl11 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ColColor1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColColor2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColColor3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColColor4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColScore = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup11 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -66,9 +74,6 @@
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -92,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -103,8 +110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -398,6 +403,16 @@
             this.layoutControl11.TabIndex = 13;
             this.layoutControl11.Text = "layoutControl11";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(126, 22);
+            this.simpleButton1.StyleController = this.layoutControl11;
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "New Game";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // gridControl1
             // 
             this.gridControl1.Location = new System.Drawing.Point(12, 38);
@@ -411,6 +426,12 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.ColColor1,
+            this.ColColor2,
+            this.ColColor3,
+            this.ColColor4,
+            this.ColScore});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -424,6 +445,53 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowSeparatorHeight = 1;
             this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridControl1_CustomDrawCell);
+            // 
+            // ColColor1
+            // 
+            this.ColColor1.Caption = "Color 1";
+            this.ColColor1.FieldName = "ColColor1";
+            this.ColColor1.Name = "ColColor1";
+            this.ColColor1.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.ColColor1.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.ColColor1.Visible = true;
+            this.ColColor1.VisibleIndex = 0;
+            // 
+            // ColColor2
+            // 
+            this.ColColor2.Caption = "Color 2";
+            this.ColColor2.FieldName = "ColColor2";
+            this.ColColor2.Name = "ColColor2";
+            this.ColColor2.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.ColColor2.Visible = true;
+            this.ColColor2.VisibleIndex = 1;
+            // 
+            // ColColor3
+            // 
+            this.ColColor3.Caption = "Color 3";
+            this.ColColor3.FieldName = "ColColor3";
+            this.ColColor3.Name = "ColColor3";
+            this.ColColor3.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.ColColor3.Visible = true;
+            this.ColColor3.VisibleIndex = 2;
+            // 
+            // ColColor4
+            // 
+            this.ColColor4.Caption = "Color 4";
+            this.ColColor4.FieldName = "ColColor4";
+            this.ColColor4.Name = "ColColor4";
+            this.ColColor4.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.ColColor4.Visible = true;
+            this.ColColor4.VisibleIndex = 3;
+            // 
+            // ColScore
+            // 
+            this.ColScore.Caption = "Score";
+            this.ColScore.FieldName = "ColScore";
+            this.ColScore.Name = "ColScore";
+            this.ColScore.OptionsColumn.AllowEdit = false;
+            this.ColScore.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            this.ColScore.Visible = true;
+            this.ColScore.VisibleIndex = 4;
             // 
             // layoutControlGroup11
             // 
@@ -450,6 +518,27 @@
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.simpleButton1;
+            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(130, 26);
+            this.layoutControlItem3.Text = "layoutControlItem3";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(130, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(302, 26);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
             // 
@@ -558,37 +647,6 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(126, 22);
-            this.simpleButton1.StyleController = this.layoutControl11;
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "New Game";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.simpleButton1;
-            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(130, 26);
-            this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(130, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(302, 26);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,6 +678,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -631,8 +691,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -680,5 +738,10 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraGrid.Columns.GridColumn ColColor1;
+        private DevExpress.XtraGrid.Columns.GridColumn ColColor2;
+        private DevExpress.XtraGrid.Columns.GridColumn ColColor3;
+        private DevExpress.XtraGrid.Columns.GridColumn ColColor4;
+        private DevExpress.XtraGrid.Columns.GridColumn ColScore;
     }
 }

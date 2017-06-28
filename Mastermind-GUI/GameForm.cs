@@ -15,18 +15,23 @@ namespace MasterMind_GUI
 {
     public partial class GameForm : DevExpress.XtraEditors.XtraForm
     {
-        public GameForm(GameVM gameVM)        {
+        public GameForm(GameVM gameVM, GuessViewModel guessViewModel)        {
             InitializeComponent();
+            GuessViewModel_ = guessViewModel;
             model = gameVM;
             model.model.Start(4, 12);
             matcherBindingSource.DataSource = model;
-            gridControl1.DataSource = model.CreateTable(12);
+            gridControl1.DataSource = model.UserGuesses;
+            //selectedRow = gridView1.GetRow(); 
         }
 
-        Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
-
+        
+        
+        //private GridView gridView1 = gridControl1.Views as GridView;
         public GameVM model { get; private set; }
         public int CurrentIndex { get; private set; }
+        public GuessViewModel GuessViewModel_ { get; private set; }
+        public int[] selectedRow { get; private set; }
 
         private void gridControl1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
         {
@@ -52,15 +57,15 @@ namespace MasterMind_GUI
             }
             var index = gridView1.GetDataSourceRowIndex(gridHI.RowHandle);
             var table = grid.DataSource as DataTable;
-            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, brushes[CurrentIndex]);
+            if (gridHI.Column.AbsoluteIndex >= 4) { return; }
+            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, GuessViewModel_.brushes[CurrentIndex]);
         }
 
         private void ButtonValidate_Click(object sender, EventArgs e)
         {
-            model.MakeGuess();
+            GuessViewModel_.MakeGuess();
             if (model.model.State == Game.GameState.won) { MessageBox.Show("Du hast gewonnen!!!"); }
             if (model.model.State == Game.GameState.lost) { MessageBox.Show("Du hast verloren!!!"); }
-
         }
 
         private void ColorButtonClick(object sender, EventArgs e)
@@ -71,11 +76,8 @@ namespace MasterMind_GUI
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            GameForm NewForm = new GameForm(model);
-            NewForm.Show();
-            this.Dispose(false);
-
-
+            Application.Restart();
+            Environment.Exit(0);
         }
     }
 }

@@ -10,6 +10,7 @@ using Ninject.Modules;
 using Mastermind_GUI.ViewModels;
 using FJ;
 using FJ.Interfaces;
+using Mastermind_GUI;
 
 namespace MasterMind_GUI
 {
@@ -33,7 +34,9 @@ namespace MasterMind_GUI
                     Kernel.Bind<Game>().ToSelf().InSingletonScope();                    
                     Kernel.Bind<GameVM>().ToSelf().InSingletonScope();
                     Kernel.Bind<ViewModelBase>().ToSelf().InSingletonScope();
-                    Kernel.Bind<GameForm>().ToSelf().InSingletonScope();   
+                    Kernel.Bind<GameForm>().ToSelf().InSingletonScope();
+                    Kernel.Bind<GuessViewModel>().ToSelf().InSingletonScope();
+                    Kernel.Bind<Guess>().ToSelf().InSingletonScope();
                 }
             }
 
