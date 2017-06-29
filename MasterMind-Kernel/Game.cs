@@ -12,10 +12,7 @@ namespace MasterMind_Kernel
         public int MaxGuesses;
         public enum GameState
         {
-            Initial,
-            Running,
-            won,
-            lost
+            Initial, Running, won, lost
         }
 
         public GameState State
@@ -69,15 +66,11 @@ namespace MasterMind_Kernel
 
         public string RowMatch { get { return matcher.RowMatches.Any() ? matcher.RowMatches.Last() : string.Empty; } }
 
-
         public string Match { get { return Info(); } }
 
         public string Info()
         {
             return matcher.Match;
         }
-
     }
-
-
 }

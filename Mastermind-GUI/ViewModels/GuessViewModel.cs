@@ -1,54 +1,43 @@
-﻿using Mastermind_GUI.ViewModels;
-using MasterMind_GUI;
-using MasterMind_Kernel;
-using System;
-using System.Collections.Generic;
+﻿using MasterMind_Kernel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Mastermind_GUI.ViewModels
 {
-    public class GuessViewModel
+    public class GuessViewModel : ViewModelBase
     {
-        private int GuessesCount = 0;
-
-        public GuessViewModel(Guess guess,  Matcher matcher, Game game)
+        public GuessViewModel()
         {
-            game_ = game;                     
-            model = guess;
-            matcher_ = matcher;
+            GetEmptyTable();
         }
 
+        public BindingList<RowViewModel> Guesses = new BindingList<RowViewModel>();
+        private int GuessesCount = 0;
         public Brush[] brushes = new Brush[] { Brushes.Red, Brushes.Yellow, Brushes.Green, Brushes.Pink, Brushes.Blue, Brushes.LightBlue };
-        public BindingList<GuessViewModel> Guesses { get; set; }
-        public Guess model { get; }
-        public GameForm GameForm_ { get; private set; }
-        public Matcher matcher_ { get; private set; }
-        public GameVM GameVM_ { get; private set; }
-        public Game game_ { get; private set; }
-        public string Match { get; private set; }
+        
+        public void GetEmptyTable()
+        {
+            for (int i = 0; i < 12; i++) Guesses.Add(new RowViewModel());            
+        }
 
-        public void MakeGuess()
+        public void MakeGuess(Game gameModel)
         {
             var colorRow = GetColorRow();
             if (colorRow.Contains(Brushes.LightGray)) return;
-            MakeUserGuessString(colorRow);
-           // var  row = GameForm_.
-            //row[4] = GameVM_.Match;
+            MakeUserGuessString(colorRow, gameModel);
+            Guesses[GuessesCount].Result = gameModel.Info();          
             GuessesCount++;
         }
 
         private Brush[] GetColorRow()
         {
-            var row = GameForm_.selectedRow;
-            //var brushes = Guesses.  /*ItemArray.OfType<Brush>().ToArray();*/
-            return null/*brushes*/;
+            var current = Guesses[GuessesCount];
+            return new[] { current.Column1, current.Column2, current.Column3, current.Column4 };
         }
 
-        public void MakeUserGuessString(Brush[] brushes)
+        public void MakeUserGuessString(Brush[] brushes, Game gameModel)
         {
             StringBuilder Builder = new StringBuilder();
             foreach (var brush in brushes) {
@@ -60,9 +49,7 @@ namespace Mastermind_GUI.ViewModels
                 if (brush == Brushes.Blue) Builder.Append("5");
                 if (brush == Brushes.LightBlue) Builder.Append("6");
             }
-            game_.UserInput(Builder.ToString());
-            Match = game_.Info();
-
+            gameModel.UserInput(Builder.ToString());           
         }
     }
 }

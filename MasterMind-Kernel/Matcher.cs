@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MasterMind_Kernel
 {
     public class Matcher
     {
-
         public Matcher()
         {
             rowMatches = new List<string>();
@@ -38,7 +35,7 @@ namespace MasterMind_Kernel
             for (int index = Buffer.Length; index < v.Length; ++index) {
                 Buffer.Append('0');
             }
-           rowMatches.Add(Buffer.ToString());            
+            rowMatches.Add(Buffer.ToString());
         }
 
         private string secret_;
@@ -54,22 +51,21 @@ namespace MasterMind_Kernel
             get { return maxGuesses_; }
             set { maxGuesses_ = value; }
         }
-        
+
         public int Count
         {
             get { return rowMatches.Count; }
         }
-                        
+
         public string Match
         {
             get { return rowMatches.Any() ? rowMatches.Last() : string.Empty; }
         }
 
         private List<string> rowMatches;
-        // über ein IEnumerabele kann ich durchiterieren, aber nicht die List an Sich ändern!! 
         public IEnumerable<string> RowMatches
         {
-            get { return rowMatches; }           
+            get { return rowMatches; }
         }
 
         public string ReplaceWithSpace(string input, int index, char replace = ' ')

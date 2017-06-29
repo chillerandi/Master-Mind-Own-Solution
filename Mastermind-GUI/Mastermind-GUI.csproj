@@ -74,11 +74,11 @@
     <Compile Include="GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Guess.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
     <Compile Include="ViewModels\GuessViewModel.cs" />
+    <Compile Include="ViewModels\RowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
@@ -95,8 +95,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Mastermind_GUI.ViewModels.GameVM.datasource" />
+    <None Include="Properties\DataSources\Mastermind_GUI.ViewModels.GuessViewModel.datasource" />
+    <None Include="Properties\DataSources\Mastermind_GUI.ViewModels.RowViewModel.datasource" />
     <None Include="Properties\DataSources\MasterMind_Kernel.Game.datasource" />
     <None Include="Properties\DataSources\MasterMind_Kernel.Matcher.datasource" />
     <None Include="Properties\Settings.settings">

@@ -1,16 +1,8 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MasterMind_Kernel;
 using Ninject.Modules;
 using Mastermind_GUI.ViewModels;
-using FJ;
-using FJ.Interfaces;
-using Mastermind_GUI;
 
 namespace MasterMind_GUI
 {
@@ -19,9 +11,11 @@ namespace MasterMind_GUI
         [STAThread]
         static void Main(string[] args)
         {
+            MessageBox.Show("Willkommen bei Andis Master-Mind-App!!\n\n" + "Bitte gib Deinen Tip ab und bestätige mit der Validate-Taste!\n" + "Eine 2 bedeutet einen Treffer an einer richtigen Stelle.\nEine 1 bedeutet eine richtige Zahl, aber an der falschen Stelle.\nEine 0 bedeutet daneben.\n"
+                + "Viel Erfolg!");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(FJ.Factory.Instance.Get<GameForm>());            
+            Application.Run(FJ.Factory.Instance.Get<GameForm>());
         }
 
         public class Module : FJ.FactoryModule
@@ -36,7 +30,7 @@ namespace MasterMind_GUI
                     Kernel.Bind<ViewModelBase>().ToSelf().InSingletonScope();
                     Kernel.Bind<GameForm>().ToSelf().InSingletonScope();
                     Kernel.Bind<GuessViewModel>().ToSelf().InSingletonScope();
-                    Kernel.Bind<Guess>().ToSelf().InSingletonScope();
+                   
                 }
             }
 

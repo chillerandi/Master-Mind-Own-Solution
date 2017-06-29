@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
@@ -13,21 +12,18 @@ using DevExpress.XtraEditors;
 
 namespace MasterMind_GUI
 {
-    public partial class GameForm : DevExpress.XtraEditors.XtraForm
+    public partial class GameForm : XtraForm
     {
-        public GameForm(GameVM gameVM, GuessViewModel guessViewModel)        {
+        public GameForm(GameVM gameVM, GuessViewModel guessViewModel)
+        {
             InitializeComponent();
             GuessViewModel_ = guessViewModel;
             model = gameVM;
             model.model.Start(4, 12);
             matcherBindingSource.DataSource = model;
-            gridControl1.DataSource = model.UserGuesses;
-            //selectedRow = gridView1.GetRow(); 
+            guessesBindingSource.DataSource = GuessViewModel_.Guesses;
         }
 
-        
-        
-        //private GridView gridView1 = gridControl1.Views as GridView;
         public GameVM model { get; private set; }
         public int CurrentIndex { get; private set; }
         public GuessViewModel GuessViewModel_ { get; private set; }
@@ -37,7 +33,7 @@ namespace MasterMind_GUI
         {
             GridView currentView = sender as GridView;
             Rectangle r = e.Bounds;
-            var Background = currentView.GetRowCellValue(e.RowHandle, e.Column) as Brush;
+            var Background = (currentView.GetRowCellValue(e.RowHandle, e.Column)) as Brush;
             if (Background == null) { return; }
             e.Graphics.FillRectangle(Background, r);
             e.Handled = true;
@@ -52,18 +48,29 @@ namespace MasterMind_GUI
             // Retrieve information on the current View element.
             BaseHitInfo baseHI = view.CalcHitInfo(e.Location);
             GridHitInfo gridHI = baseHI as GridHitInfo;
-            if (!gridHI.InRowCell) {
-                return;
-            }
+            if (!gridHI.InRowCell) { return; }
             var index = gridView1.GetDataSourceRowIndex(gridHI.RowHandle);
-            var table = grid.DataSource as DataTable;
-            if (gridHI.Column.AbsoluteIndex >= 4) { return; }
-            table.Rows[index].SetField(gridHI.Column.AbsoluteIndex, GuessViewModel_.brushes[CurrentIndex]);
+            var table = grid.DataSource as BindingSource;
+            var row = table[index] as RowViewModel;            
+            switch (gridHI.Column.AbsoluteIndex) {
+                case 0:
+                    row.Column1 = GuessViewModel_.brushes[CurrentIndex];
+                    break;
+                case 1:
+                    row.Column2 = GuessViewModel_.brushes[CurrentIndex];
+                    break;
+                case 2:
+                    row.Column3 = GuessViewModel_.brushes[CurrentIndex];
+                    break;
+                case 3:
+                    row.Column4 = GuessViewModel_.brushes[CurrentIndex];
+                    break;
+            }
         }
 
         private void ButtonValidate_Click(object sender, EventArgs e)
         {
-            GuessViewModel_.MakeGuess();
+            GuessViewModel_.MakeGuess(model.model);
             if (model.model.State == Game.GameState.won) { MessageBox.Show("Du hast gewonnen!!!"); }
             if (model.model.State == Game.GameState.lost) { MessageBox.Show("Du hast verloren!!!"); }
         }
